@@ -16,13 +16,67 @@
 \lstset{language=C}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\lfoot{\texttt{github.com/COMS10011/2018_19}}
+\lfoot{\texttt{github.com/COMS10011/2018\_19}}
 \lhead{COMS10007 1\_probability - Conor}
 \begin{document}
 
 \section*{Introduction}
 
+In probability and statistics we study develop the tools to develop
+the tools for studying data that is uncertain or noisy and processes
+that have a random element. Probability and statistics is important to
+computer scientists of all types; some computer scientists use
+computers to manipulate data, or to make statistical inferences about
+data, for example, in machine learning, other computer scientists make
+products that need to be tested and statistics is needed to interpret
+the results of user testing.
+
+Imaging a gambler wants to decide if a coin is fair; imagine they toss
+it 20 times and get a head each time. Can they decide that the coin is
+fair. Immeadiately it is clear that they can't say that it is
+impossible that a fair coin would turn up heads five times; it is just pretty unlikely. They could say that there is only a one in 
+\begin{equation}
+2^{5}=32
+\end{equation}
+chance that a fair coin would produce that result. Since
+$(1-1/32)*100\approx 97$ it would seem that gambler could be $97\%$
+certain the coin was unfair. This isn't the end of the story though:
+five harps would have been equally suprising; so perhaps the thing to
+say is that there is only a one in
+\begin{equation}
+2^{4}=16
+\end{equation}
+the coin would produce such an unlikely result. Does this means the
+gambler can only be $94\%$ certain the coin is unfair? The idea of
+this course it to learn how to calculate probabilities, the
+probability of five heads is an easy example of this, and how to make
+inferences, such as deciding the chance the coin is unfair.
+
+
 \section*{1: Probability}
+
+To start with we need to terminology and notation and this begins with
+a sample space $\mathcal{X}$, this is the set of points; the idea is
+that these points are the possible outcomes of an
+experiment. Initially it is useful to think of discrete sample spaces,
+for example, for the coin, the sample space has two points:
+\begin{equation}
+\mathcal{S}=\{H,T\}
+\end{equation}
+where the two points $H$ and $T$ correspond to heads and harps, the
+two possible outcomes of flipping the coin. Later we will look at
+continuous sample spaces where the experiment takes a value in a
+continuum, so we could have
+\begin{equation}
+\mathcal{L}=[0,\infty)
+\end{equation}
+is the length of a song on the radio.
+
+
+
+
+
+
 
 \subsection*{Introduction}
 
