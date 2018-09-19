@@ -22,14 +22,14 @@
 
 \section*{Introduction}
 
-In probability and statistics we study develop the tools to develop
-the tools for studying data that is uncertain or noisy and processes
-that have a random element. Probability and statistics is important to
-computer scientists of all types; some computer scientists use
-computers to manipulate data, or to make statistical inferences about
-data, for example, in machine learning, other computer scientists make
-products that need to be tested and statistics is needed to interpret
-the results of user testing.
+In probability and statistics we develop the tools for studying data
+that is uncertain or noisy and processes that have a random
+element. Probability and statistics is important to computer
+scientists of all types; some computer scientists use computers to
+manipulate data, or to make statistical inferences about data, for
+example, in machine learning, other computer scientists make products
+that need to be tested and statistics is needed to interpret the
+results of user testing.
 
 Imaging a gambler wants to decide if a coin is fair; imagine they toss
 it 20 times and get a head each time. Can they decide that the coin is
@@ -78,12 +78,13 @@ machinery and that's what we are going to do first.
 \section*{1: Probability}
 
 To start with we need to terminology and notation and this begins with
-a sample space $\mathcal{X}$, this is the set of points; the idea is
-that these points are the possible outcomes of an
-experiment. Initially it is useful to think of discrete sample spaces,
-for example, for the coin, the sample space has two points:
+a \textbf{sample space} $X$, this is the set of points; the
+idea is that these points are the possible outcomes of an
+experiment. Initially it is useful to think of discrete sample spaces
+with individual points, for example, for the coin, the sample space
+has two points:
 \begin{equation}
-\mathcal{S}=\{H,T\}
+S=\{H,T\}
 \end{equation}
 where the two points $H$ and $T$ correspond to heads and harps, the
 two possible outcomes of flipping the coin. Later we will look at
@@ -94,13 +95,37 @@ continuum, so we could have
 \end{equation}
 is the length of a song on the radio.
 
+An \textbf{event} in a discrete sample space $X$ is a subset
+$E\subset X$. If the sample space was $\{1,2,3,4,5,6\}$
+corresponding to the face values of a dice, then the even sides
+$\{2,4,6\}$ is an example event. This is a useful notation because we
+might want to calculate the probability for an event as well as for
+the individual points.
+
+Now, we want to define a \textbf{probability} on a sample space $X$,
+this is a map $P$ from events to real numbers such that
+\begin{enumerate}
+\item $P(A)\ge 0$ for all events.
+\item $P(X)=1$
+\item If $A\cap B=\emptyset$ for two events $A$ and $B$ then 
+\begin{equation}
+P(A\cup B)=P(A)+P(B)
+\end{equation}
+\end{enumerate}
+where $A\cap B$ and $A\cup B$ are the intersection and union of $A$
+and $B$ and $\emptyset$ is the empty set. This should list the
+properties we expect a probability to have; the key thing being if two
+events are disjoint then the probablity of the joint event is the sum
+of the probablities of the individual events. For example the
+probability of getting one or two on a dice is a third, the
+probability of getting a three is a sixth; putting these together, the
+probablity of getting a one, two or three is a half.
 
 
 
 
 
 
-\subsection*{Introduction}
 
 \end{document}
 
