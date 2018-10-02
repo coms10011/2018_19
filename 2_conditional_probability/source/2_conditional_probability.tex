@@ -1,0 +1,94 @@
+%1_probability.tex
+%notes for the course Probability and Statistics COMS10011 
+%taught at the University of Bristol
+%2018_19 Conor Houghton conor.houghton@bristol.ac.uk
+
+%To the extent possible under law, the author has dedicated all copyright 
+%and related and neighboring rights to these notes to the public domain 
+%worldwide. These notes are distributed without any warranty. 
+
+\documentclass[11pt,a4paper]{scrartcl}
+\typearea{12}
+\usepackage{graphicx}
+%\usepackage{pstricks}
+\usepackage{listings}
+\usepackage{color}
+\lstset{language=C}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{\texttt{github.com/COMS10011/2018\_19}}
+\lhead{COMS100011 2\_conditional\_probability - Conor}
+\begin{document}
+
+\section*{Conditional Probability}
+
+One of the main characters in the Ian Banks novel \textif{Canal
+  Dreams} is afraid of flying; people try to reason her out of it,
+pointing out that being in a plane crash is very unlikely. She points
+out in return that it is even less likely if you aren't on a plane. We
+often want to model random or unknown events that are related to each
+other; for example, on a rare dry day in Summer in Galway, where I
+grew up, it was more likely to rain the next day if you could see the
+hills of Claire clearly across the bay. This sort of situation is
+modelled using conditional probabilities.
+
+Consider the sample space made up of pairs of points:
+\begin{equation}
+X=\{(r,c),(r,u),(d,c),(d,u)\}
+\end{equation}
+The outcome $(r,c)$ corresponds to rain and a clear view of the hills,
+$(r,u)$ to rain and no clear view, $(d,c)$ to dry and a clear view and
+$(d,u)$ to dry and no clear view. Let's imagine we have probabilities
+for each of these outcomes:
+\begin{center}
+\begin{tabular}{c|cccc}
+&$(r,c)$&$(r,u)$&$(d,c)$&$(d,u)$\\
+p&1/2&1/4&1/16&3/16
+\end{tabular}
+\end{center}
+Thus, the probability that it is going to rain and the hills are clear
+is $1/2$; the probability that the hills are unclear and it is going
+to stay dry is $3/16$. 
+
+It is useful to also define some events, for example $R$ for rain
+\begin{equation}
+R=\{(r,c),(r,u)\}
+\end{equation}
+and $C$ for clear
+\begin{equation}
+C=\{(r,c),(d,c)\}
+\end{equation}
+Equally well $\bar{R}=\{(d,c),(d,u)\}$ is the set of all points not in $R$, it is called the \textbf{complement} of $R$ and is given by
+\begin{equation}
+\bar{R}=X\setminus R
+\end{equation}
+where \lq{}$\setminus$\rq{} is \textbf{set minus}. It is easy to work out
+\begin{equation}
+P(R)=3/4
+\end{equation}
+and 
+\begin{equation}
+P(C)=11/16
+\end{equation}
+Now we can also work out probabilities for the intersections, for example:
+\begin{equation}
+P(R\cap C)=1/2
+\end{equation}
+This is the probability of $R$ and $C$ both happening, in the small
+example we are looking at here, this is just one outcome $(r,c)$, but,
+in general, the intersection might have more points in it. Now, notice
+that by definition
+\begin{equation}
+C=(R\cap C)\cup (\bar{R}\cap C)
+\end{equation}
+and, since $(R\cap C)\cap (\bar{R}\cap C)=\emptyset$ then
+\begin{equation}
+P(C)=P(R\cap C)+P(\bar{R}\cap C)
+\end{equation}
+Hence, the probability of $C$ is the probability of $C$ and $R$ plus
+the probability of $C$ and not $R$.
+
+
+
+\end{document}
+
