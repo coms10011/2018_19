@@ -142,6 +142,25 @@ getting one or two on a dice is a third, the probability of getting a
 three is a sixth; putting these together, the probablity of getting a
 one, two or three is a half.
 
+
+On a discrete sample space a probability and a \textbf{probability
+  mass function} are similar but subtely different objects. A
+probability, as defined above, is a map from events to real numbers, a
+probability mass function is a map from points in the sample space to
+real numbers: the probability mass function $p(x)$ for $x$ in $X$ has the properties:
+\begin{enumerate}
+\item $p(x)\ge 0$ for all $x\in X$
+\item $\sum_{x\in X} p(x)=1$
+\end{enumerate}
+and the two can be related:
+\begin{equation}
+P(A)=\sum_{x\in A}p(x)
+\end{equation}
+This might seem like a silly distinction and, in fact, people are
+often very casual in distinguishing the two. The distinction is,
+however, more important when dealing with more challenging sample
+spaces.
+
 \section*{Counting things}
 
 The is a class of problems where calculating probabilities can be
@@ -150,7 +169,7 @@ that says $P(A\cup B)=P(A)+P(B)$ if $A\cap B=\emptyset$. If, for
 example, all the points in a sample space have the same probability, say $q$, then
 this rule means that the probability of an event is is 
 \begin{equation}
-p(A)=(\mbox{number of points in }A)\times q
+P(A)=(\mbox{number of points in }A)\times q
 \end{equation}
 To see this notice that if $A=\{a_1,a_2,\ldots,a_k\}$ are the points in $A$ we can write $A$ as the union of little sets each containing just one point:
 \begin{equation}
@@ -158,7 +177,7 @@ A=\{a_1\}\cup\{a_2\}\cup\ldots\cup\{a_k\}
 \end{equation}
 and so
 \begin{equation}
-p(A)=p(\{a_1\})+p(\{a_2\})+\ldots+p(\{a_k\})=q+q+\ldots+qx
+P(A)=P(\{a_1\})+P(\{a_2\})+\ldots+P(\{a_k\})=q+q+\ldots+qx
 \end{equation}
 
 From the rule $P(X)=1$ it also follows that 
@@ -201,7 +220,7 @@ there is no constraint on the suit of the non-pair cards, giving
 \end{equation}
 Thus
 \begin{equation}
-p(\mbox{pair})=\frac{1098240}{2598960}\approx 0.42
+P(\mbox{pair})=\frac{1098240}{2598960}\approx 0.42
 \end{equation}
 
 A classic problem is the birthday party problem; a common intuition is
@@ -220,15 +239,15 @@ different is
 \end{equation}
 This means the probability no pair has a shared birthday is
 \begin{equation}
-p(\mbox{no shared birthday})=\frac{365}{365}\frac{364}{365}\ldots\frac{347}{365}\frac{346}{365}\approx 0.5886
+P(\mbox{no shared birthday})=\frac{365}{365}\frac{364}{365}\ldots\frac{347}{365}\frac{346}{365}\approx 0.5886
 \end{equation}
 and hence
 \begin{equation}
-p(\mbox{at least one shared birthday})=1-p(\mbox{no shared birthday})\approx 0.414
+P(\mbox{at least one shared birthday})=1-P(\mbox{no shared birthday})\approx 0.414
 \end{equation}
 Put another way, the probability of a shared birthday in a group of $n$ people is
 \begin{equation}
-p(\mbox{at least one shared birthday},n)=1-\prod_{i=0}^{n-1}\frac{365-i}{365}
+P(\mbox{at least one shared birthday},n)=1-\prod_{i=0}^{n-1}\frac{365-i}{365}
 \end{equation}
 where the big pi symbol is the produce symbol, list the big sigma used
 for summing but for products. The probability graph can be seen in Fig.~\ref{fig_birthday}.
