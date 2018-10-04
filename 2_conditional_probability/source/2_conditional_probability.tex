@@ -179,15 +179,18 @@ $>40$     &0.1    &0.05  &0
 \end{tabular}
 \end{center}
 Using the obvious notation we can work out the \textbf{marginal}
-distributions: for vehicles $P(car)=P(cycle)=0.25$ wherese
-$P(walk)=0.5$, for times $P(<20)=0.325$, $P([20,40])=0.525$ and
+distributions: for vehicles $P(\mbox{car})=P(\mbox{cycle})=0.25$ whereas
+$P(\mbox{walk})=0.5$, for times $P(<20)=0.325$, $P([20,40])=0.525$ and
 $P(>40)=0.15$. Now, say someone rushes in to your meeting and says
 they are sorry but it took them over 40 minutes to get from Temple
 Meades, what is the chance they travelled by car:
 \begin{equation}
 P(\mbox{car}\,|>40)=\frac{P(\mbox{car}\,\cap >40)}{P(>40)}=\frac{0.1}{0.15}=\frac{2}{3}
 \end{equation}
-
+Looking at the bottom row of the table you can see how it all works;
+\lq{}car\rq{} makes up two thirds of the values on that row; the
+denominator just serves to normalize the row so that it is a
+probability.
 
 
 \end{document}
