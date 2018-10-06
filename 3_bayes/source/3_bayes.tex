@@ -1,9 +1,8 @@
 %3_bayes.tex
-%notes for the course Probability and Statistics COMS10011 
+%notes for the course Probability and Statistics COMS10011
 %taught at the University of Bristol
 %2018_19 Conor Houghton conor.houghton@bristol.ac.uk
-
-%To the extent possible under law, the author has dedicated all copyright 
+%To the extent possible under law, the author has dedicated all copyright
 %and related and neighboring rights to these notes to the public domain 
 %worldwide. These notes are distributed without any warranty. 
 
@@ -20,7 +19,72 @@
 \lhead{COMS100011 3\_bayes - Conor}
 \begin{document}
 
-\section*{Bayes' theorem}
+\section*{3 Bayes' theorem}
+
+\subsection*{Independent events and some laws of probability}
+
+Two events $A$ and $B$ are said to be \textbf{independent} if 
+\begin{equation}
+P(A\cap B)=P(A)P(B)
+\end{equation}
+This is equivalent to says that two events are independent if
+\begin{equation}
+P(A|B)=P(A)
+\end{equation}
+or 
+\begin{equation}
+P(B|A)=P(B)
+\end{equation}
+What it says is that the probability $A$ and $B$ happen together is
+just the probability that $A$ happens multiplied by the probability
+$B$ happens; so, for example, $A$ happening doesn't change the
+probability that $B$ happens.
+
+
+Here is an example a slightly complicated example. Imagine a very
+boring game of like snakes and ladders with no snakes and no
+ladders. Every time it is your go you flip a coin, if you get a harp
+you go forward one step, if you get the other side you stay put. Hence for example, three
+rounds into the game your locations have probabilities
+\begin{center}
+\begin{tabular}{c|cccc}
+&0&1&2&3\\
+\hline
+$P$&1/8&3/8&3/8&1/8
+\end{tabular}
+\end{center}
+Let $S_3^3$ be the event you are on the third square after three
+rounds, so $P(S_3^3)=1/8$ and, so, if $S_3^2$ is the event you are at
+the third square after three rounds the $P(S_3^2)=3/8$ because it
+corresponds to three possible sequences (H, H, T), (H, T, H) and (T,
+H, H), out of eight possible sequences in all. Let $S_2^2$ be the
+event that you are at square two after two goes, clearly
+$P(S_2^2)=1/4$. Now
+\begin{equation}
+P(S_3^3|S_2^2)=1/2
+\end{equation}
+which is different from $P(S_3^3)$ so your position after two moves is
+not independent from your position after three. It is similarly true
+that your position after three moves is not independent of your
+position after one move. 
+
+
+Before considering Bayes' theorem it is useful to note two laws of probability. The multiplicative law is
+\begin{equation}
+P(A\cap B)=P(A)P(B|A)
+\end{equation}
+which follows directly from the definition of conditional probability. The additive law is
+\begin{equation}
+P(A\cup B)=P(A)+P(B)-P(A\cap B)
+\end{equation}
+Finally, a corollary of the addative law tells us
+\begin{equation}
+P(A)=1-P(\bar{A})
+\end{equation}
+where, recall, $\bar{A}$ is the complement set to $A$, it is all the
+outcomes in the sample space that are not in $A$.
+
+\subsection*{Bayes' theorem}
 
 Consider the formula for the conditional probability:
 \begin{equation}
@@ -98,7 +162,7 @@ words that may be in a email, say:
 W=(\mbox{enlargement},\mbox{xxx},\mbox{cheapest},\mbox{pharmaceuticals}, \mbox{satisfied},\mbox{leeds})
 \end{equation}
 and say $\textbf{w}$ is a vector of zeros and ones indicating the
-presence or absense of different potential spam words in an email. Thus, an email that includes the words \lq{}enlargment\lq{}, \lq{}xxx\rq{} and \lq{}leeds\rq{} but not \lq{}cheapest\rq{}, \lq{}pharmaceuticals\rq{} and \lq{}satisfied\rq{} would be represented by
+presence or absence of different potential spam words in an email. Thus, an email that includes the words \lq{}enlargement\lq{}, \lq{}xxx\rq{} and \lq{}leeds\rq{} but not \lq{}cheapest\rq{}, \lq{}pharmaceuticals\rq{} and \lq{}satisfied\rq{} would be represented by
 \begin{equation}
 \textbf{w}=(1,1,0,0,0,1)
 \end{equation}
@@ -107,18 +171,18 @@ with a spam filter is to estimate $P(S|\textbf{w})$ for every possible
 vector $\textbf{w}$ and then use a cut-off to label any email with a
 high probability of being spam as \lq{}spam\rq{}.
 
-Obviously if you have a truely huge amount of data you could estimate this probability by counting:
+Obviously if you have a truly huge amount of data you could estimate this probability by counting:
 \begin{equation}
 P(S|(1,1,0,0,0,1))=\frac{\#\{\mbox{spam emails with the words enlargement, xxx and leeds}\}}{\#\{\mbox{all emails with the words enlargement, xxx and leeds}\}}
 \end{equation}
 However there are $2^6=64$ possible $\textbf{w}$ vectors, and of
 course in a real example you'd need many more than six words, thus,
-for anything but an unfeasibly large data set, the amount of emails
+for anything but an infeasibly large data set, the amount of emails
 with the precise combination of words represented by a given
 $\textbf{w}$ will be tiny, leading to a poor estimate of the
 probabilities.
 
-An alternative approach is to use Bayes's rule to get
+An alternative approach is to use Bayes' rule to get
 \begin{equation}
 P(S|\textbf{w})=\frac{P(\textbf{w}|S)P(S)}{P(\textbf{w})}
 \end{equation}
@@ -135,8 +199,84 @@ is why it is a \lq{}na\"ive\rq{} classifier. The advantage though is
 that the individual probabilities are much easier to estimate, there
 will be more emails with \lq{}leeds\rq{} in that there will be emails
 with the exact combination of words represented by $(1,1,0,0,0,1)$
-and so counting occurances will be much more accurate.
+and so counting occurrences will be much more accurate.
 
+\subsection*{Conditional probability}
+
+Lets return to our slightly odd example of independence involving the
+boring version of snakes and ladders. What is $P(S_1^1|S_2^1)$? In
+other words, if you observe that someone is on the first square after
+two moves, what is the probability that they were on the first square
+after one move. Well
+\begin{equation}
+P(S_1^1|S_2^1)=\frac{P(S_2^1|S_1^1)P(S_1^1)}{P(S_2^1)}
+\end{equation}
+and we can calculate all these quantities: $P(S_2^1|S_1^1)=1/2$, and
+$P(S_1^1)=1/2$ as well, as is $P(S_2^1)$, so
+\begin{equation}
+P(S_1^1|S_2^1)=1/2
+\end{equation}
+Similarly $P(S_3^2|S_2^1)=1/2$. Finally consider the probability
+$P(S_3^2\cap S_1^1|S_2^1)$. This is the probability of the sequence
+(H, T, H) when there are four sequence with $S_2^1$: (T, H, H), (T, H,
+T), (H, T, H) and (H, T, T). Thus 
+\begin{equation}
+P(S_3^2\cap S_1^1|S_2^1)=1/4
+\end{equation}
+and hence
+\begin{equation}
+P(S_3^2\cap S_1^1|S_2^1)=P(S_1^1|S_2^1)P(S_3^2|S_2^1)
+\end{equation}
+
+This is an example of conditional independence: two events $A$ and $B$
+are \textbf{conditionally independent} conditional on a third event
+$C$ is
+\begin{equation}
+P(A\cap B|C)=P(A|C)P(B|C)
+\end{equation}
+In this case $A$ and $B$ might be related to each other, but only
+through $C$, so if we know $C$ then $A$ and $B$ are independent. 
+
+This applies to the snakes and ladders example; $S_1^1$ and $S_3^2$
+are dependent. To work out the probability $P(S_1^1\cap S_3^2)$ we can
+count the number of sequence of heads and tails this holds for:
+(H,T,H) and (H,H,T), two out of eight possible sequences so
+\begin{equation}
+P(S_1^1\cap S_3^2)=1/4
+\end{equation}
+However, since $P(S_3^2)=3/8$ we see that 
+\begin{equation}
+P(S_1^1\cap S_3^2)\not = P(S_1^1)P(S_3^2)
+\end{equation}
+Thus $S_1^1$ and $S_3^2$ are not independence events. It is clear why
+this is, the result after the first round affects the results after
+two rounds, and that in turn affects the result after three. However
+if we specify the result after two rounds, there is no further
+dependence of the result after the first round and the result after
+the third, they are related to each only through the result after the
+second round.
+
+The reason to mention this hear is that it is part of the idea of a
+Markov chain: a Markov chain encodes a set of conditional independence
+relationships between events. Markov chains are used to model many
+statistical processes. A Markov chain model of language would assume
+the probability of the next word in the sentence would depend only on
+the previous one. For example, if you look at the sentence \lq{}Don't
+forget you are going to Aunt Alicia's\rq{} a Markov model asked to
+predict the sixth word would look at the word \lq{}going\rq{} and use
+the probability table for how often different words come after
+\lq{}going\rq{}; it wouldn't consider the words coming earlier in the
+sentence, the \lq{}Don't\rq{} and \lq{}forget\rq{} and so on. This
+restriction is clearly useful from a computational point of view; by
+assuming the word after \lq{}going\rq{} only depends on the earlier
+words through the word \rq{}going\lq{} the problem of language
+predictions is reduced to calculating a large, but not impossibly
+large, probability table. However, this model doesn't work well, it is
+a very primitive model of language. More sophisticated models, and
+until a few years ago the best models of language, use a Hidden Markov
+Model, which nonetheless is designed around assumptions of conditional
+independence.
 
 \end{document}
+
 
