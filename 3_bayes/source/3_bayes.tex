@@ -256,12 +256,13 @@ dependence of the result after the first round and the result after
 the third, they are related to each only through the result after the
 second round.
 
-The reason to mention this hear is that it is part of the idea of a
-Markov chain: a Markov chain encodes a set of conditional independence
-relationships between events. Markov chains are used to model many
-statistical processes. A Markov chain model of language would assume
-the probability of the next word in the sentence would depend only on
-the previous one. For example, if you look at the sentence \lq{}Don't
+The reason to mention this here is that it is part of the idea behind
+a Markov chain. Markov chains go beyond this unit but roughly speaking
+a Markov chain encodes a set of conditional independence relationships
+between events. They are used to model many statistical processes. A
+Markov chain model of language, for example, might assume the
+probability of the next word in the sentence depends only on the
+previous one. For example, if you look at the sentence \lq{}Don't
 forget you are going to Aunt Alicia's\rq{} a Markov model asked to
 predict the sixth word would look at the word \lq{}going\rq{} and use
 the probability table for how often different words come after
@@ -271,10 +272,10 @@ restriction is clearly useful from a computational point of view; by
 assuming the word after \lq{}going\rq{} only depends on the earlier
 words through the word \rq{}going\lq{} the problem of language
 predictions is reduced to calculating a large, but not impossibly
-large, probability table. However, this model doesn't work well, it is
-a very primitive model of language. More sophisticated models, and
-until a few years ago the best models of language, use a Hidden Markov
-Model, which nonetheless is designed around assumptions of conditional
+large, probability table. This model doesn't work well, it is a very
+primitive model of language. More sophisticated models, and until a
+few years ago the best models of language, use a Hidden Markov Model,
+which nonetheless is designed around assumptions about conditional
 independence.
 
 \end{document}
