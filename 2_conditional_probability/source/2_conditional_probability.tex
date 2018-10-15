@@ -94,7 +94,7 @@ P(R)=3/4
 \end{equation}
 and 
 \begin{equation}
-P(C)=11/16
+P(C)=9/16
 \end{equation}
 Now we can also work out probabilities for the intersections, for example:
 \begin{equation}
@@ -121,12 +121,12 @@ Now we define
 P(R|C)=\frac{P(R\cap C)}{P(C)} 
 \end{equation}
 This is the probability of $R$ given $C$; if we know it is clear how
-likely is it to be raining. The demoninator $P(C)$ is needed because
+likely is it to be raining. The denominator $P(C)$ is needed because
 the probabilities must add up to one and $P(C)=P(R\cap C)+P(\bar{R}\cap C)$. Thus
 \begin{equation}
-P(R|C)=\frac{1/2}{11/16}=\frac{8}{11}\approx  0.73
+P(R|C)=\frac{1/2}{9/16}=\frac{8}{9}\approx  0.89
 \end{equation}
-In other words, if we can see the hills of Clare, there is a 73\%
+In other words, if we can see the hills of Clare, there is a 89\%
 chance it will rain tomorrow.
 
 More generally, if we have two events $A$ and $B$ then the conditional probability is
@@ -135,15 +135,15 @@ P(A|B)=\frac{P(A\cap B)}{P(B)}
 \end{equation}
 
 Here is a quick example. In the card game 21 you get given two cards
-and you add up there value; you then decide whether to take more
-cards, with the aim of being no more than and as close to 21 as
+and you add up their values; you then decide whether to take more
+cards, with the aim of being no more than and but as close to 21 as
 possible. In 21 picture cards count as ten; you can count an ace as
 one or 11; for simplicity lets pretend an ace has to be one and we are
 concentrating on the original hand of two cards. Now imagine you are
 given two cards; if the first card is a king what is the chance your
 hand is bigger the 17 in value? Let $B$ be the set of hands that has a
 king as the first card and $A$ is the set of hands worth more than
-17. First lets calculate $P(B)$. Well there are $52\times 51$ hands in
+17. First lets calculate $P(B)$. There are $52\times 51$ hands in
 total, and $4\times 51$ of them have a king as the first card so
 \begin{equation}
 P(B)=\frac{4}{52}=\frac{1}{13}
@@ -168,7 +168,8 @@ pairs. This make sense, it is like there are two things to measure and
 you use conditional probability to see how one relates to the
 other. Here is another example; imagine thinking about the journey
 times from Temple Meades to the top of Park Street. Consider a table
-of the describing the frequency different modes of transport are used and different times of travel are measured.
+of the describing the frequency different modes of transport are used
+and different times of travel are measured.
 \begin{center}
 \begin{tabular}{c|ccc}
         &car    &walk  &cycle\\
