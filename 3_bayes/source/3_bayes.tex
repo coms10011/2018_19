@@ -16,7 +16,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lfoot{\texttt{github.com/COMS10011/2018\_19}}
-\lhead{COMS100011 3\_bayes - Conor}
+\lhead{COMS10011 3\_bayes - Conor}
 \begin{document}
 
 \section*{3 Bayes' theorem}
@@ -153,16 +153,23 @@ probability of the evidence, $P(Y)$.
 
 \subsection*{Na\"ive Bayes estimator}
 
-Many learning algorithms can be thought of have machines for
+Many learning algorithms can be thought of as machines for
 estimating probabilities, often in the face of insufficient data to
 estimate the probabilities required. A common example used to
 illustrate this is a spam filter. Let $W$ represent an ordered list of
-words that may be in a email, say:
+words that may be in an email, say:
 \begin{equation}
 W=(\mbox{enlargement},\mbox{xxx},\mbox{cheapest},\mbox{pharmaceuticals}, \mbox{satisfied},\mbox{leeds})
 \end{equation}
-and say $\textbf{w}$ is a vector of zeros and ones indicating the
-presence or absence of different potential spam words in an email. Thus, an email that includes the words \lq{}enlargement\lq{}, \lq{}xxx\rq{} and \lq{}leeds\rq{} but not \lq{}cheapest\rq{}, \lq{}pharmaceuticals\rq{} and \lq{}satisfied\rq{} would be represented by
+It isn't enough to look at these words on their own; an email with the
+word \lq{}enlargement\rq{} might be talking about photographs, someone
+might actually be from Leeds. For this reason it is more useful to
+look at combinations. Say $\textbf{w}$ is a vector of zeros and ones
+indicating the presence or absence of different potential spam words
+in an email. Thus, an email that includes the words
+\lq{}enlargement\lq{}, \lq{}xxx\rq{} and \lq{}leeds\rq{} but not
+\lq{}cheapest\rq{}, \lq{}pharmaceuticals\rq{} and \lq{}satisfied\rq{}
+would be represented by
 \begin{equation}
 \textbf{w}=(1,1,0,0,0,1)
 \end{equation}
@@ -175,12 +182,20 @@ Obviously if you have a truly huge amount of data you could estimate this probab
 \begin{equation}
 P(S|(1,1,0,0,0,1))=\frac{\#\{\mbox{spam emails with the words enlargement, xxx and leeds}\}}{\#\{\mbox{all emails with the words enlargement, xxx and leeds}\}}
 \end{equation}
-However there are $2^6=64$ possible $\textbf{w}$ vectors, and of
-course in a real example you'd need many more than six words, thus,
-for anything but an infeasibly large data set, the amount of emails
-with the precise combination of words represented by a given
-$\textbf{w}$ will be tiny, leading to a poor estimate of the
-probabilities.
+where by \lq{}spam emails with the words enlargement, xxx and
+leeds\rq{} we mean spam emails with those words, but not the three
+others, cheapest, pharmaceuticals and satisfied; these correspond to
+zeros in the $\textbf{w}$ vector. Now, the problem is there are
+$2^6=64$ possible $\textbf{w}$ vectors, and of course in a real
+example you'd need many more than six words, thus, for anything but an
+infeasibly large data set, the amount of emails with the precise
+combination of words represented by a given $\textbf{w}$ will be tiny,
+leading to a poor estimate of the probabilities. For example, if there
+are 30 words being considered, still nothing like enough to think
+about when building a spam filter, then there are just over a billion
+possible $\textbf{w}$ vectors; that means for most $\textbf{w}$
+vectors the number of spam emails corresponding to $\textbf{w}$ will
+be small, even if you have collected a billion spam emails.
 
 An alternative approach is to use Bayes' rule to get
 \begin{equation}
@@ -193,13 +208,16 @@ independent so that
 \begin{eqnarray}
 P((1,1,0,0,0,1)|S)&=&P(\mbox{enlargement}|S)P(\mbox{xxx}|S)[1-P(\mbox{cheapest}|S)]\times\cr&&[1-P(\mbox{pharmaceuticals}|S)][1-P(\mbox{satisfied}|S)]P(\mbox{leeds}|S)
 \end{eqnarray}
-This is clearly inaccurate, a spam email is \lq{}enlargement\rq{} is
-more likely to contain \lq{}satisfied\rq{} than one that doesn't, that
-is why it is a \lq{}na\"ive\rq{} classifier. The advantage though is
-that the individual probabilities are much easier to estimate, there
-will be more emails with \lq{}leeds\rq{} in that there will be emails
-with the exact combination of words represented by $(1,1,0,0,0,1)$
-and so counting occurrences will be much more accurate.
+This is clearly inaccurate, a spam email containing
+\lq{}enlargement\rq{} is more likely to contain \lq{}satisfied\rq{}
+than one that doesn't, that is why it is a \lq{}na\"ive\rq{}
+classifier. The advantage though is that the individual probabilities
+are much easier to estimate, there will be more emails with
+\lq{}leeds\rq{} than there will be emails with the exact
+combination of words represented by $(1,1,0,0,0,1)$ and so counting
+occurrences will be much more accurate. The same approach can be used
+to calculate $P(\textbf{w})$. Although the assumption, that the words
+are independent, these estimators are quiet effective. 
 
 \subsection*{Conditional probability}
 
