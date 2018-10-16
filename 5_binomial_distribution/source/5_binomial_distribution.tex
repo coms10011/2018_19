@@ -51,7 +51,14 @@ the example above, it is easy to see
 \begin{equation}
 p_R(r)=\left(\begin{array}{c}n\\r\end{array}\right)p^rq^{n-r}
 \end{equation}
+Examples are plot in Fig.~\ref{fig_binomial}.
 
+\begin{figure}[htb]
+\begin{center}
+\include{binomial}
+\end{center}
+\caption{Binomial histograms. Here the value of $p_R(r)$ is plotted where $R$ is a binomial with $n=30$. In the left distribution $p=0.25$ and in the right $p=0.75$.\label{fig_binomial}}
+\end{figure}
 
 Say a student is doing a multiple choice vocabulary test in a language
 that is very different from the one they speak or any they have never
@@ -111,6 +118,14 @@ to derive
 \begin{equation}
 \langle R\rangle=pn
 \end{equation}
+
+A similar argument based on differentiating twice gives the standard
+deviation:
+\begin{equation}
+\sigma^2=pqn
+\end{equation}
+
+
 
 \end{document}
 
