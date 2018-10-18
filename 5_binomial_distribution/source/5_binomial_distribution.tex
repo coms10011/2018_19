@@ -33,7 +33,7 @@ five rolls, so we also need to count the number of ways of choosing
 which three of the five rolls gives a six. Putting all this together
 and using $R$ to denote the number of sixes
 \begin{equation}
-p(R=3)=\left(\begin{array}{c}5\\2\end{array}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^2=0.032
+p(R=3)=\left(\begin{array}{c}5\\3\end{array}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^2=0.032
 \end{equation}
 
 This is an example of the \textsl{binomial distribution}; the binomial
@@ -93,7 +93,7 @@ Now differentiate both sides with $p$, so take $d/dp$. The left side is a consta
 where we have used the product rule, remembering that $q=1-p$. Next we multiply and divide by either $p$ or $q$, it will be clear why in a few lines time:
 \begin{equation}
 0=\frac{1}{p}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)rp^rq^{n-r}
--\frac{1}{q}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^r{n-r}q^{n-r}
+-\frac{1}{q}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^r(n-r)q^{n-r}
 \end{equation}
 Now, $n$ is just a constant so we can go
 \begin{equation}
