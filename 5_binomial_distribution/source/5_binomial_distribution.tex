@@ -26,11 +26,12 @@ Say you roll a dice five times, what is the chance you get exactly
 three sixes? There are three parts to working out the
 probability. First consider the chance of getting three sixes in the
 first three rolls. This is $(1/6)^3$. Next consider the change of
-getting not a six in the next two rolls. This is $(5/6)^2$. Finally,
-we are interested, not in getting three sixes followed by two not
-sixes, we are interested in getting exactly three sixes out of five
-rolls, so we also need to count the number of ways of choosing which
-three of the five rolls gives a six. Putting all this together and using $R$ to denote the number of sixes 
+getting not-a-six in the next two rolls. This is $(5/6)^2$. Finally,
+we are interested, not in getting three sixes followed by two
+not-sixes, we are interested in getting exactly three sixes out of
+five rolls, so we also need to count the number of ways of choosing
+which three of the five rolls gives a six. Putting all this together
+and using $R$ to denote the number of sixes
 \begin{equation}
 p(R=3)=\left(\begin{array}{c}5\\2\end{array}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^2=0.032
 \end{equation}
@@ -57,7 +58,7 @@ Examples are plot in Fig.~\ref{fig_binomial}.
 \begin{center}
 \include{binomial}
 \end{center}
-\caption{Binomial histograms. Here the value of $p_R(r)$ is plotted where $R$ is a binomial with $n=30$. In the left distribution $p=0.25$ and in the right $p=0.75$.\label{fig_binomial}}
+\caption{Binomial histograms. Here the value of $p_R(r)$ is plotted where $R$ is a binomial with $n=30$. In the left distribution $p=0.25$ and in the right $p=0.5$.\label{fig_binomial}}
 \end{figure}
 
 Say a student is doing a multiple choice vocabulary test in a language
@@ -76,7 +77,7 @@ expansion of polynomials:
 \end{equation}
 Applied to our case, where $q=1-p$, the left hand side is one; the right hand side is a sum over the probabilities.
 \begin{equation}
-1=\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^rq^{n-r}=\sum_{r=0}^np_(R=r)
+1=\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^rq^{n-r}=\sum_{r=0}^np(R=r)
 \end{equation}
 This is what you would expect, the probabilities should add to
 one. However, this formula leads to a very neat trick, first:
@@ -91,14 +92,14 @@ Now differentiate both sides with $p$, so take $d/dp$. The left side is a consta
 \end{equation}
 where we have used the product rule, remembering that $q=1-p$. Next we multiply and divide by either $p$ or $q$, it will be clear why in a few lines time:
 \begin{equation}
-0=\frac{1}{p}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)rp^{r-1}q^{n-r}
--\frac{1}{q}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^r{n-r}q^{n-r-1}
+0=\frac{1}{p}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)rp^rq^{n-r}
+-\frac{1}{q}\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^r{n-r}q^{n-r}
 \end{equation}
 Now, $n$ is just a constant so we can go
 \begin{equation}
 \sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)np^{n-r}q^r=n\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^{n-r}q^r=n
 \end{equation}
-Once we deal with this part we see we have two terms that look the same except for the $1/p$ our $1/q$ at the start, 
+Once we deal with this part we see we have two terms that look the same except for the $1/p$ or $1/q$ at the start, 
 \begin{equation}
 0=\frac{n}{q}-\left(\frac{1}{q}+\frac{1}{p}\right)\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^{n-r}rq^r
 \end{equation}
