@@ -62,30 +62,18 @@ be shown how to set this up so that this doesn't matter.
 
 Why might be do this; well the thing is the moment generating function
 encodes all the properties of the distribution into one place and this
-can be useful for proving theorems. We just note that it can be
+can be useful for proving theorems. We can think of it as an
+alternative description of the distribution, instead of giving the
+probabilities $p(X)$ we give the moments, all wrapped up in a single
+function.
+
+
+We just note that it can be
 calculated as an explicit formula in some cases. For a particularly
 easy case consider the Bernoulli distribution, that is a random
-variable with two outcomes, say zero and one, with $p(1)=p$ and $p(0)=q=1-p$. In this case, provided $n>0$
+variable with two outcomes, say zero and one, with $p(1)=p$ and $p(0)=q=1-p$. Now
 \begin{equation}
-\langle X^n\rangle = p(0)\times 0 + p(1)\times 1^n=p
-\end{equation}
-If $n=0$ then $\langle X^n\rangle$
-
-to substitute that in to the equation for $m(t)$
-\begin{equation}
-m(t)=\sum_{n=0}^\infty \frac{t^n}{n!}\langle X^n\rangle
-\end{equation}
-you have to deal with the $n=0$ case on its own so
-\begin{equation}
-m(t)=1+\sum_{n=1}^\infty \frac{t^n}{n!}\langle X^n\rangle=1+\sum_{n=1}^\infty \frac{t^n}{n!}p
-\end{equation}
-Finally, we notice that for $n=0$ the summand would be $p$ so we can add and take away the $n=0$ term to repair the sum
-\begin{equation}
-m(t)=1+\sum_{n=1}^\infty \frac{t^n}{n!}\langle X^n\rangle=1-p+p\sum_{n=0}^\infty \frac{t^n}{n!}
-\end{equation}
-and then, spotting the Taylor expansion for the exponential, we get
-\begin{equation}
-m(t)=1-p+pe^{t}
+m(t)=\langle e^{tX}\rangle=pe^t+(1-p)e^0=1-p+pe^t
 \end{equation}
 In fact, though we won't look at any other examples here, it is
 usually possible to calculate the moment generating function for a
