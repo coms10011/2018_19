@@ -22,11 +22,7 @@
 
 \section*{Problem Sheet 1 - outline solutiosn}
 
-
-
 \begin{enumerate}
-
-
 
 \item In the poker hand two pair there are two pairs of cards with
   each card in the pair matched by value; the fifth card is a
@@ -98,6 +94,49 @@ permutations of 122, along with 222. To get $X=5$ there are six
 permutations of 123 along with three permutations of 223. Finally to
 rolls six there are three permutations of each of 133 and 233, along
 with 333.
+
+\end{enumerate}
+
+\subsection*{Extra questions}
+
+\begin{enumerate}
+
+
+\item When it started in 1987 the Irish lottery has 36 numbers;
+  participants paid 50 Irish pence to buy a combination of six
+  different numbers; they would win if these numbers matched the six
+  drawn. In the last week in May in 1992 a syndicate tried to buy all
+  combinations of numbers. If they had succeeded how many numbers
+  would they have bought?\\ \\ \\ \textbf{Solution}: Well this is just 36 choose six:
+\begin{equation}
+\left(\begin{array}{c}36\\6\end{array}\right)=1947792
+\end{equation}
+so they would've spend $973,896$ Irish pounds.
+
+
+\item From a group of three undergraduates and five graduate students,
+  four students are randomly selected to act as TAs. What is the
+  chance there will be exactly two undergraduate
+  TAs?\\ \\ \\ \textbf{Solution}: So this is another counting exercise,
+  the total ways of selecting four out of eight is
+\begin{equation}
+\left(\begin{array}{c}8\\4\end{array}\right)=frac{8\times 7\times 6 \times 5}{1\times 2\times 3\times 4}
+=70
+\end{equation}
+Now the number of ways of choosing two undergraduates out of three is
+three and the number of ways of picking two graduates out of five is
+10. Hence the answer is $3/7$.
+
+
+\item Prove
+\begin{equation}
+\left(\begin{array}{c}n\\r\end{array}\right)=\left(\begin{array}{c}n\\n-r\end{array}\right)
+\end{equation}
+\\ \\ \\ \textbf{Solution}: This follows from the definition
+\begin{equation}
+\left(\begin{array}{c}n\\r\end{array}\right)=\frac{n!}{r!(n-r)!}
+\end{equation}
+which stays the same if you swap $r$ and $n-r$.
 
 \end{enumerate}
 
