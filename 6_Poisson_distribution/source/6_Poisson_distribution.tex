@@ -56,6 +56,15 @@ there can be one fish there is some change of two, but we are going to
 take the limit where the time interval becomes zero so this doesn't
 matter. Call the small interval width $\delta t$.
 
+
+\begin{figure}[tb]
+\begin{center}
+\include{fig_dist}
+\end{center}
+\caption{The Poisson distribution for a variety of values of $\lambda$. As $\lambda$ increases the peak moves to the right.\label{fig_dist}}
+\end{figure}
+
+
 Now if we are interested in the probability distribution for the
 number of events in an interval $T=n\delta t$, then, by the binomial
 distribution the probability of $r$ events is
@@ -117,6 +126,8 @@ Finally set $s=r-1$ and
 \mu = \lambda \sum_{s=0}^\infty \frac{\lambda^s}{s!}e^{-\lambda}=\lambda
 \end{equation}
 so $\lambda$ is the average event count!
+
+Some example Poisson distributions are shown in Fig.~\ref{fig_dist}.
 
 \subsection*{Quick example}
 
