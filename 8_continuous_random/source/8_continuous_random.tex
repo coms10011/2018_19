@@ -104,16 +104,17 @@ This function and the corresponding cumulative is shown in Fig.~\ref{fig_const}.
 
 The expected value is defined using the density:
 \begin{equation}
-\langle g(X)\rangle =\int_{-\infty}^\infty xp(x)dx
+\langle g(X)\rangle =\int_{-\infty}^\infty g(x)f(x)dx
 \end{equation}
 Hence, for the constant example:
 \begin{equation}
-\mu=\langle X\rangle=\int_{-\infty}^\infty xp(x)dx=\frac{1}{2}\int_{-1}^1xdx=0
+\mu=\langle X\rangle=\int_{-\infty}^\infty xf(x)dx=\frac{1}{2}\int_{-1}^1xdx=0
 \end{equation}
 and
 \begin{equation}
-\langle X^2\rangle=\int_{-\infty}^\infty x^2p(x)dx=\frac{1}{2}\int_{-1}^1x^2dx=\frac{1}{3}
+\langle X^2\rangle=\int_{-\infty}^\infty x^2f(x)dx=\frac{1}{2}\int_{-1}^1x^2dx=\frac{1}{3}
 \end{equation}
+
 This continuous version of the expected value has the same nice
 properties that the discrete version did: with the obvious notation
 \begin{equation}
@@ -127,6 +128,23 @@ and
 \begin{equation}
 \langle g_1(X)+g_2(X)\rangle =\langle g_1(X)\rangle +\langle g_2(X)\rangle
 \end{equation}
+
+It is useful to note that these properties can be used to see how the mean and variance change under simple linear transformations. With the obvious notation let $Y=X=c$, then
+\begin{equation}
+\mu_Y=\langle Y\rangle =\langle X+c\rangle=\langle X \rangle +c=\mu_X+c
+\end{equation}
+whereas
+\begin{equation}
+\sigma^2_Y=\langle Y^2\rangle-\mu_Y^2=\langle(X^2+2cX+c^2)\rangle-\mu_X^2-2c\mu_X-c^2=\langle X^2\rangle -\mu_X^2=\sigma_X^2
+\end{equation}
+Similarly, if $Y=cX$ then
+\begin{equation}
+\mu_Y=\langle Y\rangle=\langle cX\rangle=c\mu_X
+\end{equation}
+and
+\begin{equation}
+\sigma_Y^2=\langle Y^2\rangle -\mu_Y^2=c^2(\langle X^2\rangle-\mu_X^2)=c^2\sigma_Y^2\end{equation}
+
 
 \end{document}
 
