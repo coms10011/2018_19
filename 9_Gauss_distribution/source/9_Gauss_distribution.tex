@@ -126,10 +126,31 @@ if we say a variable is normally distributed with mean $\mu$ and
 variance $\sigma^2$, or if we say $X\sim \mathcal{N}(\mu,\sigma^2)$
 we mean it has density function
 \begin{equation}
-p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}
+p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 \end{equation}
 
+\subsection{Working out Gau\ss{}ian probabilities}
 
+Obviously what we'd like to do is work out probabilities:
+\begin{equation}
+\mbox{Prob}(x\in (a,b)}=\frac{1}{\sqrt{2\pi\sigma^2}}\int_a^b e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
+\end{equation}
+There problem is that we can't do that integral, there is no way to
+write the integral in terms of function we already know. The solution
+to this problem is to define a new function, \textsl{the error
+  function}, specifically for using to do the integral:
+\begin{equation}
+\erf(x)=\frac{1}{\sqrt{\pi}}\int_{-x}^xe^{-y^2}dy=\frac{2}{\sqrt{\pi}}\int_0^xe^{-y^2}dy
+\end{equation}
+This is a so called \textsl{special function} which rougly means a
+function we needed to define so that we could do an integral, or solve
+a differential equation, we couldn't otherwise do or solve. Other
+examples are Bessel functions and the elliptic integrals; there are
+lots, especially coming from applied mathematics. Sometimes some
+number theory functions, like Euler's totient function, are called
+special functions. Either way, once a special function is defined and
+numerial values computed for it, then you can use it by relating
+other integrals to it.
 
 \end{document}
 
