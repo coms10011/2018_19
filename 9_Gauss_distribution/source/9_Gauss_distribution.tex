@@ -36,18 +36,18 @@ look at the distribution and its properties.
 \begin{center}
 \include{fig_gauss}
 \end{center}
-\caption{A normal curve with mean zero and variance one.\label{fig_gauss}}
+\caption{A normal curve with mean zero and variance one, that is $\mu=0$ and $\sigma^2=1$.\label{fig_gauss}}
 \end{figure}
 
-The Gau\ss{}ian distribution with zero mean and unit variance is given by
+The Gau\ss{}ian distribution is given by
 \begin{equation}
-p(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 \end{equation}
 It has a classic \lq{}bell\rq{} shape seen in Fig.~\ref{fig_gauss}; it
 looks a bit like a binomial distribution with $p=0.5$. The slightly
-confusing thing is the $1/\sqrt{2\pi}$, that is there to normalize the curve:
+confusing thing is the $1/\sqrt{2\pi\sigma^2}$, that is there to normalize the curve:
 \begin{equation}
-\int_{-\infty}^\infty e^{-x^2/2}dx=\sqrt{2\pi}
+\int_{-\infty}^\infty e^{-x^2/2}dx=\sqrt{2\pi\sigma^2}
 \end{equation}
 This is confusing because we can do this definite integral, but the
 corresponding indefinite integral can't be done in the sense that we
@@ -56,91 +56,104 @@ know. There is a trick for doing the definite integral which we won't
 look at here for reasons of time but is very nice if you want to look
 it up.
 
-First lets work out the mean and variance of this distribution, it is
-a maybe surprising thing that the integrals required for calculating
-the mean and variance are much easier than the integral mentioned
-above for normalizing the curve. So, mean first
-\begin{equation}
-\mu=\int_{-\infty}^\infty xp(x)dx =\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty xe^{-x^2/2}dx
-\end{equation}
-This integral is very easy because the integrand is odd: a function $f(x)$ is odd if $f(-x)=-f(x)$. Now consider the integral from minus infinity to infinity of an odd function
-\begin{equation}
-\int_{-\infty}^\infty f(x)dx=\int_{-\infty}^0 f(x)dx+\int_0^\infty f(x)dx
-\end{equation}
-then let $x'=-x$ in the second integral. Note that $dx'=-dx$ and $x=\infty$ means $x'=-\infty$ and swithcing around the limits in an integral changes the sign:
-\begin{equation}
-\int_b^a g(x)dx=-\int_a^b g(x)dx
-\end{equation}
-Finally $f(x)=f(-x')=-f(x')$ so we have
-\begin{equation}
-\int_{-\infty}^\infty f(x)dx=\int_{-\infty}^0 f(x)dx-\int_0^{\infty} f(x')dx'=0
-\end{equation}
-Hence, noting that 
-\begin{equation}
-f(x)=xe^{-x^2/2}
-\end{equation}
-is odd we see $\mu=0$
+Surprisingly it is easier to calculate the moment generating function
+than it is to calculate the mean and variance directly; we will do
+this soon; we will see that the mean is $\mu$ and the variance
+$\sigma^2$.
 
-The variance is a little trickier, given the zero mean we have
-\begin{equation}
-\sigma^2=\int_{-\infty}^\infty x^2p(x)dx =\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty x^2e^{-x^2/2}dx
-\end{equation}
-This has to be done by integrating by parts, if you don't know integration by parts, just ignore this bit, but
-\begin{equation}
-\frac{d}{dx}e^{-x^2/2}=xe^{-x^2/2}
-\end{equation}
-so
-\begin{equation}
-\sigma^2=-\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty x\frac{de^{-x^2/2}}{dx}dx
-\end{equation}
-Now, applying the integration by parts formula
-\begin{equation}
-\int_a^b u\frac{dv}{dx}dx=uv|_a^b-\int_a^b v\frac{du}{dx}dx
-\end{equation}
-and using the fact 
-\begin{equation}
-\lim_{x\rightarrow \pm \infty} xe^{-x^2/2}=0
-\end{equation}
-we have 
-\begin{equation}
-\sigma^2=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty e^{-x^2/2}dx=1
-\end{equation}
+The Gau\ss{}ian distribution is sometimes described as
+$\mathcal{N}(\mu,\sigma^2)$; this notation is a little confusing, it is never
+really specified what \lq{}described as\rq{} means, but roughly
+speaking people write $X\sim \mathcal{N}(\mu,\sigma^2)$ as a shorthand for say
+$X$ is normally distributed with mean $\mu$ and variance $\sigma^2$
 
-Thus the distribution 
+\subsection*{The moment generating function}
+
+Obviously when the constants were named $\mu$ and $\sigma^2$ in the
+definition of the probability density it was because these contants
+correspond to the mean and variance. Here we're going to check that by
+working out the moment generating function for the Gau\ss{}ian. This
+might seem a needlessly complicated way to work out the mean and the
+variance, but it is actually the easiest way to do it.
+
+Recall that the moment generating function 
 \begin{equation}
-p(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+m(t)=\langle e^{tX}\rangle
 \end{equation}
-is the Gau\ss{}ian distribution with mean zero and variance one, it is
-sometimes described as $\mathcal{N}(0,1)$; this notation is a little
-confusing, it is never really specified what \lq{}described as\rq{},
-but roughly speaking people write $X\sim \mathcal{N}(0,1)$ as a
-shorthand for say $X$ is normally distributed with mean zero and variance one, or that $X$ has density function
+can be used to work out all the moments of a distribution. In the case of the Gau\ss{}ian
 \begin{equation}
-p(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}
+m(t)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^\infty e^{xt}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
 \end{equation}
-It is easy to work out the density function with mean $\mu$ and
-variance $\sigma^2$, roughly speaking this is done by translating the
-variable and scaling it, the only tricky bit which we will just state
-here is that scaling the variable changes the normalization. In short
-if we say a variable is normally distributed with mean $\mu$ and
-variance $\sigma^2$, or if we say $X\sim \mathcal{N}(\mu,\sigma^2)$
-we mean it has density function
+Now $e^ae^b=e^{a+b}$ so
 \begin{equation}
-p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+m(t)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^\infty e^{-\frac{(x-\mu)^2}{2\sigma^2}+xt}dx
+\end{equation}
+and we can complete the square: first add in the new term
+\begin{equation}
+\frac{(x-\mu)^2}{2\sigma^2}-xt=\frac{1}{2\sigma^2}(x^2-2\mu x +\mu^2-2\sigma^2 xt)
+\end{equation}
+Next add and take away what is needed to make a square
+\begin{eqnarray}
+x^2-2\mu x +\mu^2-2\sigma^2 xt &=& x^2-2(\mu+\sigma^2 t) x +(\mu+\sigma^2 t)^2 - 2\mu\sigma^2 t -\sigma^4 t^2\cr
+                                &&= (x-\mu-\sigma^2 t)^2 - 2\mu\sigma^2 t -\sigma^4 t^2\
+\end{eqnarray}
+Hence
+\begin{equation}
+m(t)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^\infty e^{-\frac{(x-\mu-\sigma^2 t)^2}{2\sigma^2}+\mu t + \frac{1}{2}\sigma^2 t^2}dx
+\end{equation}     
+Finally use $e^{a+b}=e^ae^b$ and move stuff with no $x$s outside the integral
+ \begin{equation}
+m(t)=\left(\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^\infty e^{-\frac{(x-\mu-\sigma^2 t)^2}{2\sigma^2}}dx\right) e^{\mu t + \frac{1}{2}\sigma^2 t^2}
+\end{equation}
+and the stuff in the big brackets is just one, it is just the integral of the Gau\ss{}ian with mean $\mu+\sigma^2 t$, so
+\begin{equation}
+m(t)= e^{\mu t + \frac{1}{2}\sigma^2 t^2}
 \end{equation}
 
-\subsection{Working out Gau\ss{}ian probabilities}
+Now remember that 
+\begin{equation}
+\frac{d^nm}{dt^n}(0)=\mu_n
+\end{equation}
+where 
+\begin{equation}
+\mu_n=\langle X^n\rangle
+\end{equation}
+Now, using the chain rule, which in this case tells us that
+\begin{equation}
+\frac{d}{dt}e^{f(t)}=\frac{df}{dt}e^{f(t)}
+\end{equation}
+we get
+\begin{equation}
+\frac{d}{dt}e^{\mu t + \frac{1}{2}\sigma^2 t^2}=(\mu+\sigma^2 t)e^{\mu t + \frac{1}{2}\sigma^2 t^2}
+\end{equation}
+If we set $t=0$ this tells us that $\langle X\rangle =\mu$. Next
+ \begin{equation}
+\frac{d^2}{dt^2}e^{\mu t + \frac{1}{2}\sigma^2 t^2}=\frac{d}{dt}(\mu+\sigma^2 t)e^{\mu t + \frac{1}{2}\sigma^2 t^2}=[(\mu+\sigma^2 t)^2+\sigma^2]e^{\mu t + \frac{1}{2}\sigma^2 t^2}
+\end{equation}
+and if we set $t=0$ we get $\langle X^2\rangle =\sigma^2+\mu^2$ and
+hence $\langle X^2\rangle-\langle X\rangle^2=\sigma^2$.
+
+\subsection*{Working out Gau\ss{}ian probabilities}
+
+
+\begin{figure}[tb]
+\begin{center}
+\include{fig_erf}
+\end{center}
+\caption{The error function $\mbox{erf}(x)$.\label{fig_erf}}
+\end{figure}
+
 
 Obviously what we'd like to do is work out probabilities:
 \begin{equation}
-\mbox{Prob}(x\in (a,b)}=\frac{1}{\sqrt{2\pi\sigma^2}}\int_a^b e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
+\mbox{Prob}(x_1<x<x_2)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{x_1}^{x_2} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
 \end{equation}
 There problem is that we can't do that integral, there is no way to
 write the integral in terms of function we already know. The solution
 to this problem is to define a new function, \textsl{the error
   function}, specifically for using to do the integral:
 \begin{equation}
-\erf(x)=\frac{1}{\sqrt{\pi}}\int_{-x}^xe^{-y^2}dy=\frac{2}{\sqrt{\pi}}\int_0^xe^{-y^2}dy
+\mbox{erf}\,(x)=\frac{1}{\sqrt{\pi}}\int_{-x}^xe^{-y^2}dy=\frac{2}{\sqrt{\pi}}\int_0^xe^{-y^2}dy
 \end{equation}
 This is a so called \textsl{special function} which rougly means a
 function we needed to define so that we could do an integral, or solve
@@ -148,9 +161,56 @@ a differential equation, we couldn't otherwise do or solve. Other
 examples are Bessel functions and the elliptic integrals; there are
 lots, especially coming from applied mathematics. Sometimes some
 number theory functions, like Euler's totient function, are called
-special functions. Either way, once a special function is defined and
-numerial values computed for it, then you can use it by relating
-other integrals to it.
+special functions. A lot of effort in the C19 was put into defining
+special functions and finding efficient ways to numerically calculate
+values; in those days, of course, these then went into big tables of
+values; now all of that is done for us by the C \texttt{math} library
+and it successors.
+
+
+\begin{figure}[tb]
+\begin{center}
+\include{fig_prob}
+\end{center}
+\caption{Working out the probability means calculating the area under the curve.\label{fig_prob}}
+\end{figure}
+
+
+
+A graph of $\mbox{erf}\,(x)$ is shown in Fig.~\ref{fig_erf}. We can use it to work out Gau\ss{}ian probablities. Consider
+\begin{equation}
+\mbox{Prob}(x_1<x<x_2)=\int_{x_!}^{x_2} p(x)dx=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{x_1}^{x_2} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx 
+\end{equation}
+Now let
+\begin{equation}
+z=\frac{x-\mu}{\sigma}
+\end{equation}
+so 
+\begin{equation}
+dz=\frac{dx}{\sigma}
+\end{equation}
+and when $x=x_1$ we have
+\begin{equation}
+z=z_1=\frac{x_1-\mu}{\sigma}
+\end{equation}
+and when $x=x_2$ we have
+\begin{equation}
+z=z_2=\frac{x_2-\mu}{\sigma}
+\end{equation}
+Substituting this all back into the integral
+\begin{equation}
+\mbox{Prob}(x_1<y<x_2)=\frac{1}{\sqrt{2\pi}}\int_{z_1}^{z_2} e^{-\frac{z^2}{2}}dz=\frac{1}{\sqrt{2\pi}}\int_{z_1}^{0} e^{-\frac{z^2}{2}}dz+\frac{1}{\sqrt{2\pi}}\int_{0}^{z_2} e^{-\frac{z^2}{2}}dz
+\end{equation}
+Hence using the usual 
+\begin{equation}
+\int_a^bf(x)dx=-\int_b^a f(x)dx
+\end{equation}
+we have
+\begin{equation}
+\mbox{Prob}(x_1<x<x_2)=\frac{1}{2}[\mbox{erf}\,(z_2)-\mbox{erf}\,(z_1)]
+\end{equation}
+
+
 
 \end{document}
 
