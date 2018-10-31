@@ -22,6 +22,19 @@
 
 \section*{9 The Gau\ss{}ian distribtion}
 
+Recall how continuous probability distributions work, they are defined
+in terms of a density function $p(x)$ where $p(x)$ is like the
+probability per length, so 
+\begin{equation}
+\mbox{Prob}(x_1<x<x2)=\int_{x_1}^{x_2} p(x)dx
+\end{equation}
+We used $f(x)$ for the probability density when we introduced it to
+avoid confusing it with the probabilities that are used for discrete
+random variables. However, like almost everything in statistics it is
+usually just called $p(x)$, or sometimes $p_X(x)$ if there are a few
+random variables around and we want to know which probability density
+goes with which variable.
+
 The Gau\ss\footnote{\ss{} is a German letter equivalent to ss} or Gauss
 or normal or Gau\ss{}ian or Gaussian or bell-curve distribution is a
 continuous distribution which is used to model a whole range of
@@ -49,17 +62,18 @@ confusing thing is the $1/\sqrt{2\pi\sigma^2}$, that is there to normalize the c
 \begin{equation}
 \int_{-\infty}^\infty e^{-x^2/2}dx=\sqrt{2\pi\sigma^2}
 \end{equation}
-This is confusing because we can do this definite integral, but the
-corresponding indefinite integral can't be done in the sense that we
-can't write down a formula in terms of functions we already
-know. There is a trick for doing the definite integral which we won't
-look at here for reasons of time but is very nice if you want to look
-it up.
+This is confusing because we can do this particular definite integral
+going from minus infinity to infinity, but the corresponding
+indefinite integral can't be done in the sense that we can't write
+down a formula in terms of functions we already know. There is a trick
+for doing the definite integral which we won't look at here for
+reasons of time but is very nice if you want to look it up.
 
 Surprisingly it is easier to calculate the moment generating function
 than it is to calculate the mean and variance directly; we will do
 this soon; we will see that the mean is $\mu$ and the variance
-$\sigma^2$.
+$\sigma^2$, just as we'd hope, that's why these particular symbols
+were used in the formula for the density.
 
 The Gau\ss{}ian distribution is sometimes described as
 $\mathcal{N}(\mu,\sigma^2)$; this notation is a little confusing, it is never
@@ -69,12 +83,13 @@ $X$ is normally distributed with mean $\mu$ and variance $\sigma^2$
 
 \subsection*{The moment generating function}
 
-Obviously when the constants were named $\mu$ and $\sigma^2$ in the
-definition of the probability density it was because these contants
-correspond to the mean and variance. Here we're going to check that by
-working out the moment generating function for the Gau\ss{}ian. This
-might seem a needlessly complicated way to work out the mean and the
-variance, but it is actually the easiest way to do it.
+As we noted above, obviously when the constants were named $\mu$ and
+$\sigma^2$ in the definition of the probability density it was because
+these contants correspond to the mean and variance. Here we're going
+to check that by working out the moment generating function for the
+Gau\ss{}ian. This might seem a needlessly complicated way to work out
+the mean and the variance, but it is actually the easiest way to do
+it.
 
 Recall that the moment generating function 
 \begin{equation}
@@ -105,7 +120,7 @@ Finally use $e^{a+b}=e^ae^b$ and move stuff with no $x$s outside the integral
  \begin{equation}
 m(t)=\left(\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^\infty e^{-\frac{(x-\mu-\sigma^2 t)^2}{2\sigma^2}}dx\right) e^{\mu t + \frac{1}{2}\sigma^2 t^2}
 \end{equation}
-and the stuff in the big brackets is just one, it is just the integral of the Gau\ss{}ian with mean $\mu+\sigma^2 t$, so
+and the stuff in the big brackets is just one, it is the integral of the Gau\ss{}ian with mean $\mu+\sigma^2 t$, so
 \begin{equation}
 m(t)= e^{\mu t + \frac{1}{2}\sigma^2 t^2}
 \end{equation}
@@ -138,6 +153,14 @@ hence $\langle X^2\rangle-\langle X\rangle^2=\sigma^2$.
 
 \begin{figure}[tb]
 \begin{center}
+\include{fig_prob}
+\end{center}
+\caption{Working out the probability means calculating the area under the curve.\label{fig_prob}}
+\end{figure}
+
+
+\begin{figure}[tb]
+\begin{center}
 \include{fig_erf}
 \end{center}
 \caption{The error function $\mbox{erf}(x)$.\label{fig_erf}}
@@ -148,10 +171,11 @@ Obviously what we'd like to do is work out probabilities:
 \begin{equation}
 \mbox{Prob}(x_1<x<x_2)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{x_1}^{x_2} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
 \end{equation}
-There problem is that we can't do that integral, there is no way to
-write the integral in terms of function we already know. The solution
-to this problem is to define a new function, \textsl{the error
-  function}, specifically for using to do the integral:
+as illustrated in Fig.~\ref{fig_prob}. The problem is that we can't
+do that integral, there is no way to write the integral in terms of
+function we already know. The solution to this problem is to define a
+new function, \textsl{the error function}, specifically for using to
+do the integral:
 \begin{equation}
 \mbox{erf}\,(x)=\frac{1}{\sqrt{\pi}}\int_{-x}^xe^{-y^2}dy=\frac{2}{\sqrt{\pi}}\int_0^xe^{-y^2}dy
 \end{equation}
@@ -167,39 +191,29 @@ values; in those days, of course, these then went into big tables of
 values; now all of that is done for us by the C \texttt{math} library
 and it successors.
 
-
-\begin{figure}[tb]
-\begin{center}
-\include{fig_prob}
-\end{center}
-\caption{Working out the probability means calculating the area under the curve.\label{fig_prob}}
-\end{figure}
-
-
-
 A graph of $\mbox{erf}\,(x)$ is shown in Fig.~\ref{fig_erf}. We can use it to work out Gau\ss{}ian probablities. Consider
 \begin{equation}
 \mbox{Prob}(x_1<x<x_2)=\int_{x_!}^{x_2} p(x)dx=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{x_1}^{x_2} e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx 
 \end{equation}
 Now let
 \begin{equation}
-z=\frac{x-\mu}{\sigma}
+z=\frac{x-\mu}{\sqrt{2}\sigma}
 \end{equation}
 so 
 \begin{equation}
-dz=\frac{dx}{\sigma}
+dz=\frac{dx}{\sqrt{2}\sigma}
 \end{equation}
 and when $x=x_1$ we have
 \begin{equation}
-z=z_1=\frac{x_1-\mu}{\sigma}
+z=z_1=\frac{x_1-\mu}{\sqrt{2}\sigma}
 \end{equation}
 and when $x=x_2$ we have
 \begin{equation}
-z=z_2=\frac{x_2-\mu}{\sigma}
+z=z_2=\frac{x_2-\mu}{\sqrt{2}\sigma}
 \end{equation}
 Substituting this all back into the integral
 \begin{equation}
-\mbox{Prob}(x_1<y<x_2)=\frac{1}{\sqrt{2\pi}}\int_{z_1}^{z_2} e^{-\frac{z^2}{2}}dz=\frac{1}{\sqrt{2\pi}}\int_{z_1}^{0} e^{-\frac{z^2}{2}}dz+\frac{1}{\sqrt{2\pi}}\int_{0}^{z_2} e^{-\frac{z^2}{2}}dz
+\mbox{Prob}(x_1<y<x_2)=\frac{1}{\sqrt{\pi}}\int_{z_1}^{z_2} e^{-\frac{z^2}{2}}dz=\frac{1}{\sqrt{\pi}}\int_{z_1}^{0} e^{-z^2}dz+\frac{1}{\sqrt{\pi}}\int_{0}^{z_2} e^{-z^2}dz
 \end{equation}
 Hence using the usual 
 \begin{equation}
@@ -210,7 +224,24 @@ we have
 \mbox{Prob}(x_1<x<x_2)=\frac{1}{2}[\mbox{erf}\,(z_2)-\mbox{erf}\,(z_1)]
 \end{equation}
 
+\subsection*{Example}
 
+The loudness of songs at a concert are normally distributed with mean 75 dB and standard deviation $\sigma=10 dB$. What is the probability that a long has loudness between 80 and 90 dB? Well
+\begin{equation}
+\mbox{Prob}(80<x<90)=\frac{1}{2}[\mbox{erf}\,(z_2)-\mbox{erf}\,(z_1)]
+\end{equation}
+where 
+\begin{equation}
+\sqrt{2}z_1=\frac{80-75}{10}=0.5
+\end{equation}
+and 
+\begin{equation}
+\sqrt{2}z_2=\frac{90-75}{10}=1.5
+\end{equation}
+Working out $\mbox{erf}\,(0.5/\sqrt{2})$ using your calculator or computer gives 0.38, whereas $\mbox{erf}\,(1.5/\sqrt{2})=0.87$ so
+\begin{equation}
+\mbox{Prob}(80<x<90)=0.2417
+\end{equation}
 
 \end{document}
 
