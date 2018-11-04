@@ -124,12 +124,45 @@ see that it very quickly comes to resemble a Gau\ss{}ian distribution.
 \caption{$U_n$ for different $n$s where $X$ is the uniform distribution.\label{fig_const}}
 \end{figure}
 
+We won't prove the central limit theorem here, doing so involves a bit
+of detail in deciding what we mean by \lq{}for $n$ approaching
+infinity\rq{}. The proof itself involves some messing about with the
+moment generating theorem and isn't too hard. It isn't particularly
+revealing though; it misses what is happening, which is roughly this:
+the central limit theorem is a bit like the binomial distribution,
+just like the binomial distribution quantifies the different ways to
+get different numbers of $S$, the central limit theorem quantifies
+different ways of getting the same sum. In fact, numerically, the Gau\ss{}ian
+distribution is close to the binomial distribution, see for example Fig.~\ref{fig_binomial}.
 
 
+\begin{figure}[tb]
+\begin{center}
+\include{binomial}
+\end{center}
+\caption{This compares the binomial distribution with $n=30$ and
+  $p=0.25$ with the  Gau\ss{}ian distribution with the same mean and variance.\label{fig_binomial}}
+\end{figure}
 
 
-
-In other words if you average lots of random variables you get something that looks like 
+The central limit theorem is important in two ways. First off, it
+tells us how the sample mean behaves; since we often estimate means by
+doing multiple independent trials this is useful. The second point is
+vaguer, although we have stated the central limit theorem in terms of
+i.i.d. variables and this is the case where it is easy to state and
+prove the theorem, there is a more general phenomena, which is that if
+you add independent variables, even if they are not identical, then
+the result is a Gau\ss{}ian. This is why so many things show
+Gau\ss{}ian distributions. Think, for example, of the height of trees,
+lots of things contribute to the height of a tree, how wet and sunny
+the location it is growing in, the soil, the genetics of each
+individual. These individual contributions probably aren't
+Gau\ss{}ian, they aren't identical and, in fact, probably don't
+contribute in a linear way to the height, nonetheless we would expect
+the result, the height of the trees to be Gau\ss{}ian. It is a
+fortunate aspect of statistics, things that are complicated and have
+multiple contributing factors, tend to behave in a simple way from the
+point-of-view of statistics.
 
 
 \end{document}
