@@ -50,18 +50,18 @@ interval zero to one. Now, the first contraint, $x\in [0,1]$ is easy
 but the second one depends on $z$. If $z<0$ then $z-x$ is always
 negative and $p_Y(z-x)=0$. If $z>2$ then $z-x>1$ and again
 $p_Y(z-x)=0$. If $z\in [0,2]$ there are two cases, if $z<1$ then $x$
-then $z>0$ for $x\in [0,z]$, otherwise if $z>1$ then $z<1$ for
-$x\in [1-z,1]$. Lets do the two cases separately, for $z\in [0,1]$:
+then $z-x>0$ for $x\in [0,z]$, otherwise if $z>1$ then $z-x<1$ in $x\in
+[z-1,1]$. Lets do the two cases separately, for $z\in [0,1]$:
 \begin{equation}
 p_Z(z)=\int_0^z dx=z
 \end{equation}
 and for $z\in (1,2]$
 \begin{equation}
-p_Z(z)=\int_{1-z}^1dx=1-(1-z)=-z
+p_Z(z)=\int_{z-1}^1dx=1-(z-1)=2-z
 \end{equation}
 Putting it all together we get
 \begin{equation}
-p_Z(z)=\left\{\begin{array}{ll} z&z\in [0,1]\\-z& z\in [1,2]\\0&\mbox{otherwise}\end{array}\right.
+p_Z(z)=\left\{\begin{array}{ll} z&z\in [0,1]\\2-z& z\in [1,2]\\0&\mbox{otherwise}\end{array}\right.
 \end{equation}
 
 \subsection*{Sums and the moment generating function\footnote{not covered in lectures and not examinable}}
