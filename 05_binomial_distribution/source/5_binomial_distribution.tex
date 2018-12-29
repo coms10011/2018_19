@@ -36,9 +36,9 @@ and using $R$ to denote the number of sixes
 p(R=3)=\left(\begin{array}{c}5\\3\end{array}\right)\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^2=0.032
 \end{equation}
 
-This is an example of the \textsl{binomial distribution}; the binomial
+This is an example of the \textbf{binomial distribution}; the binomial
 distribution is important because it describes the result of multiple
-independent trials. In a \textsl{binomial experiment}  
+independent trials. In a \textbf{binomial experiment}  
 \begin{itemize}
 \item There are $n$ identical trials.
 \item Each trial has one of two outcomes, which we call success, $S$,
@@ -126,8 +126,28 @@ deviation:
 \sigma^2=pqn
 \end{equation}
 
+\section*{Summary}
 
-
+\begin{itemize}
+\item In a \textbf{binomial experiment}  
+\begin{enumerate}
+\item There are $n$ identical trials.
+\item Each trial has one of two outcomes, which we call success, $S$,
+  and failure, $F$.
+\item The trials are independent.
+\item The random variable of interest, say $R$, is the total number of successes.
+\end{enumerate}
+\item In a binomial experiment, if $p$ is the chance of success for an individual trial, and $q=1-p$ is the chance of failure, then the probability of $r$ successes is given by
+\begin{equation}
+p_R(r)=\left(\begin{array}{c}n\\r\end{array}\right)p^rq^{n-r}
+\end{equation}
+\item The mean is $np$ and the variance is $npq$.
+\item The mean is derived using a fancy trick involving differenciating
+  \begin{equation}
+  1=\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^rq^{n-r}=\sum_{r=0}^np(R=r)
+  \end{equation}
+  with respect to $p$.
+\end{itemize}
 \end{document}
 
 
