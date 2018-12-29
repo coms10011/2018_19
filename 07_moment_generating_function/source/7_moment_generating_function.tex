@@ -33,7 +33,7 @@ formula for the Taylor expansion of the exponential:
 \begin{equation}
 e^x=\sum_n \frac{x^n}{n!}
 \end{equation}
-Now the \textsl{moment generating function} $m(t)$ is defined as
+Now the \textbf{moment generating function} $m(t)$ is defined as
 \begin{equation}
 m(t)=\langle e^{tX}\rangle
 \end{equation}
@@ -79,7 +79,24 @@ In fact, though we won't look at any other examples here, it is
 usually possible to calculate the moment generating function for a
 distribution.
 
+\newpage
 
+\section*{Summary}
+
+\begin{itemize}
+\item The \textbf{moment generating function} is
+  \begin{equation}
+    m(t)=\langle e^{tX}\rangle
+  \end{equation}
+\item It gives the $n$th moment
+  \begin{equation}
+\frac{d^nm}{dt^n}(0)=\langle X^n\rangle=\mu_n
+\end{equation}
+\item For the Bernoulli distribution which is one with propability $p$ and zero with probability $q=1-p$
+  \begin{equation}
+    m(t)=q+pe^t
+  \end{equation}
+  \end{itemize}
 \end{document}
 
 
