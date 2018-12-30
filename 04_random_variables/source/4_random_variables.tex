@@ -233,7 +233,7 @@ Also, trivially:
 Finally, it is additive: if $g_1$ and $g_2$ are two different
 functions
 \begin{eqnarray}
-\langle (g_1(X)+g_2(X)\rangle &=&\sum_x [g_1(x)+g_2(x)p(x)\cr
+\langle g_1(X)+g_2(X)\rangle &=&\sum_x [g_1(x)+g_2(x)p(x)\cr
 &&=\sum_x g_1(x)p(x)+\sum_x g_2(x)p(x)=\langle g_1(X)\rangle+\langle g_2(X)\rangle
 \end{eqnarray}
 
@@ -254,6 +254,7 @@ Incidentally $\langle X^2\rangle$ is called the \textbf{second
 the \lq{}central\rq{} indicates that it is the second moment you get
 if you take away the mean first.
 
+\newpage
 \section*{Summary}
 
 \begin{itemize}
@@ -284,9 +285,17 @@ if you take away the mean first.
 
 \item The \textbf{mean} is $\langle X\rangle$. It is often called $\mu$.
 
-\item The \textbf{variance} is $\langle (X-\mu)^2\rangle$.
+\item The \textbf{variance} is $\langle (X-\mu)^2\rangle$. It is often called $V$ or $\sigma^2$.
 
-\item The \textbf{$n$th moment}, often written $\mu_n$, is $\langle X^n\rangle$ and the \textbf{nth central moment} is $\langle (X-\mu)^2\rangle$.
+\item The \textbf{$n$th moment}, often written $\mu_n$, is $\langle X^n\rangle$ and the \textbf{$n$th central moment} is $\langle (X-\mu)^2\rangle$.
+
+\item Expected values have nice properties
+  \begin{enumerate}
+    \item $\langle c g(X)\rangle =c\langle g(X)\rangle$
+\item $\langle 1\rangle=1$
+\item $\langle g_1(X)+g_2(X)\rangle=\langle g_1(X)\rangle+\langle g_2(X)\rangle$
+  \end{enumerate}
+  \item Using these nice properties it can be shown that $\sigma^2=\langle X^2\rangle -\mu^2$
   
 \end{itemize}
 
