@@ -9,6 +9,14 @@
 
 \documentclass[11pt,a4paper]{scrartcl}
 \typearea{12}
+
+
+
+\newif\ifind
+\indtrue
+
+
+
 \usepackage{graphicx}
 %\usepackage{pstricks}
 \usepackage{listings}
@@ -45,7 +53,7 @@ a door. Monty Hall then opens one of the two remaining doors to reveal
 a goat. He gives the contestant the chance to change doors. Should
 they change?
 
-\section*{Conditional Probability}
+\section*{Conditional probability}
 
 One of the main characters in the Ian Banks novel \textit{Canal
   Dreams} is afraid of flying; people try to reason her out of it,
@@ -193,14 +201,7 @@ Looking at the bottom row of the table you can see how it all works;
 denominator just serves to normalize the row so that it is a
 probability.
 
-\section*{Summary}
-\begin{itemize}
-\item The \textbf{conditional probability} of event $R$ given $C$:
-  \begin{equation}
-P(R|C)=\frac{P(R\cap C)}{P(C)} 
-  \end{equation}
-  This is the probability of getting an outcome in event $R$ if we
-  know the outcome is in event $C$.
-\end{itemize}
+\include{summary}
+
 \end{document}
 
