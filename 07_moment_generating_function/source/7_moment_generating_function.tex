@@ -13,6 +13,11 @@
 \usepackage{listings}
 \usepackage{color}
 
+
+\newif\ifind
+\indtrue
+
+
 \lstset{language=C}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -81,22 +86,8 @@ distribution.
 
 \newpage
 
-\section*{Summary}
+\include{summary}
 
-\begin{itemize}
-\item The \textbf{moment generating function} is
-  \begin{equation}
-    m(t)=\langle e^{tX}\rangle
-  \end{equation}
-\item It gives the $n$th moment
-  \begin{equation}
-\frac{d^nm}{dt^n}(0)=\langle X^n\rangle=\mu_n
-\end{equation}
-\item For the Bernoulli distribution which is one with propability $p$ and zero with probability $q=1-p$
-  \begin{equation}
-    m(t)=q+pe^t
-  \end{equation}
-  \end{itemize}
 \end{document}
 
 
