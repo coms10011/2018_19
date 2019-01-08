@@ -13,6 +13,11 @@
 \usepackage{listings}
 \usepackage{color}
 
+
+\newif\ifind
+\indtrue
+
+
 \lstset{language=C}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -33,7 +38,7 @@ formula for the Taylor expansion of the exponential:
 \begin{equation}
 e^x=\sum_n \frac{x^n}{n!}
 \end{equation}
-Now the \textsl{moment generating function} $m(t)$ is defined as
+Now the \textbf{moment generating function} $m(t)$ is defined as
 \begin{equation}
 m(t)=\langle e^{tX}\rangle
 \end{equation}
@@ -79,6 +84,9 @@ In fact, though we won't look at any other examples here, it is
 usually possible to calculate the moment generating function for a
 distribution.
 
+\newpage
+
+\include{summary}
 
 \end{document}
 

@@ -13,6 +13,9 @@
 \usepackage{listings}
 \usepackage{color}
 
+\newif\ifind
+\indtrue
+
 \lstset{language=C}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -40,11 +43,11 @@ percision, say within a centimetre $P(H\in [5.99,6.01])$ and this is
 does make sense.
 
 There are two approaches to dealing with this; the first is to define
-the \textsl{distribution function} or \textsl{cumulative}
+the \textbf{distribution function} or \textbf{cumulative}
 \begin{equation}
 F(x)=P(X<x)
 \end{equation}
-and we then define the \textsl{density function}
+and we then define the \textbf{density function}
 \begin{equation}
 f(x)=\frac{dF}{dx}
 \end{equation}
@@ -147,6 +150,9 @@ and
 \begin{equation}
 \sigma_Y^2=\langle Y^2\rangle -\mu_Y^2=c^2(\langle X^2\rangle-\mu_X^2)=c^2\sigma_Y^2\end{equation}
 
+\newpage
+
+\include{summary}
 
 \end{document}
 

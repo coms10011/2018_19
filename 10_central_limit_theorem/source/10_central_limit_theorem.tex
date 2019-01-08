@@ -13,6 +13,9 @@
 \usepackage{listings}
 \usepackage{color}
 
+\newif\ifind
+\indtrue
+
 \lstset{language=C}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -34,7 +37,7 @@ that gives $Z=z$. In fact $Z=z$ if $Y=z-x$ for any value of $x$ so
 \begin{equation}
 p_Z(z)=\int_{-\infty}^\infty {p_X(x)p_Y(z-x)dx}
 \end{equation}
-This calculation is called a \textsl{convolution}.
+This calculation is called a \textbf{convolution}.
 
 As a simple example consider $X$ and $Y$ both uniformly distributed
 over $[0,1]$:
@@ -98,11 +101,11 @@ Z\sim \mathcal{N}(\mu_X+\mu_Y,\sigma_X^2+\sigma_Y^2)
 \subsection*{The central limit theorem}
 
 Let $\{X_1,X_2,\ldots,X_n\}$ be a set of random variables. A set of
-random variables is called independent identically distributed,
+random variables is called \textbf{independent identically distributed},
 usually abbreviated to i.i.d., if the variables all have the same
 probability density, say $p_X(x)$ and are independent. Let $\mu$ and
 $\sigma^2$ be the mean and variance of that probability density. Now
-consider the \textsl{sample mean}:
+consider the \textbf{sample mean}:
 \begin{equation}
 S_n=\frac{X_1+X_2+\ldots+X_n}{n}
 \end{equation}
@@ -164,6 +167,7 @@ fortunate aspect of statistics, things that are complicated and have
 multiple contributing factors, tend to behave in a simple way from the
 point-of-view of statistics.
 
+\include{summary}
 
 \end{document}
 

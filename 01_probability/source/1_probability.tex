@@ -9,6 +9,11 @@
 
 \documentclass[11pt,a4paper]{scrartcl}
 \typearea{12}
+
+
+\newif\ifind
+\indtrue
+
 \usepackage{graphicx}
 %\usepackage{pstricks}
 \usepackage{listings}
@@ -289,12 +294,12 @@ randomly, but the supervisor's four siblings are all given the best
 job. How likely is that to be just good fortune for the sibs? Well the
 total number of ways of distributing the jobs is
 \begin{equation}
-\left(\begin{array}{c} 20\\6,4,5,5)\end{array}\right)=\frac{20!}{6!4!5!5!}
+\left(\begin{array}{c} 20\\6,4,5,5\end{array}\right)=\frac{20!}{6!4!5!5!}
 \end{equation}
 Now, if the supervisor's four siblings are in the first group, there
 are 16 labourers left to distribute, with two places left for the first job. This means the number of ways of assigning the jobs so that the supervisor's siblings all get the first job is
 \begin{equation}
-\left(\begin{array}{c} 16\\2,4,5,5)\end{array}\right)=\frac{16!}{2!4!5!5!}
+\left(\begin{array}{c} 16\\2,4,5,5\end{array}\right)=\frac{16!}{2!4!5!5!}
 \end{equation}
 Hence, if giving out the jobs was truly done randomly, the chance the supervisor's siblings all got the good job is
 \begin{equation}
@@ -303,6 +308,9 @@ p=\left.\frac{16!}{2!4!5!5!}\middle/\frac{20!}{6!4!5!5!}\right.=\frac{16!}{20!}\
 \approx 0.0031,
 \end{equation}
 so not very likely.
+\newpage
+
+\include{summary}
 
 \end{document}
 
