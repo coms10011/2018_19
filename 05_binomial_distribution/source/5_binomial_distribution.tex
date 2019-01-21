@@ -102,15 +102,15 @@ where we have used the product rule, remembering that $q=1-p$. Next we multiply 
 \end{equation}
 Now, $n$ is just a constant so we can go
 \begin{equation}
-\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)np^{n-r}q^r=n\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^{n-r}q^r=n
+\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)np^rq^{n-r}=n\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^rq^{n-r}=n
 \end{equation}
 Once we deal with this part we see we have two terms that look the same except for the $1/p$ or $1/q$ at the start, 
 \begin{equation}
-0=\frac{n}{q}-\left(\frac{1}{q}+\frac{1}{p}\right)\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^{n-r}rq^r
+0=\frac{n}{q}-\left(\frac{1}{q}+\frac{1}{p}\right)\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^rrq^{n-r}
 \end{equation}
 However, be definition
 \begin{equation}
-\langle R\rangle=\sum_{r=0}^n p(R=r)r=\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^{n-r}rq^r
+\langle R\rangle=\sum_{r=0}^n p(R=r)r=\sum_{r=0}^n \left(\begin{array}{c}n\\r\end{array}\right)p^rrq^{n-r}
 \end{equation}
 so
 \begin{equation}
